@@ -1,0 +1,129 @@
+,0
+Avg.Temp.Jan-Normalized,0.5
+Avg.Temp.Feb-Normalized,0.5
+Avg.Temp.March-Normalized,0.5
+Avg.Temp.April-Normalized,0.5
+Avg.Temp.May-Normalized,0.5
+Avg.Temp.June-Normalized,0.5
+Avg.Temp.July-Normalized,0.5
+Avg.Temp.Aug-Normalized,0.5
+Avg.Temp.Sept-Normalized,0.5
+Avg.Temp.Oct-Normalized,0.5
+Avg.Temp.Nov-Normalized,0.5
+Avg.Temp.Dec-Normalized,0.5
+Avg.Percip.Jan-Normalized,0.5
+Avg.Percip.Feb-Normalized,0.5
+Avg.Percip.March-Normalized,0.5
+Avg.Percip.April-Normalized,0.5
+Avg.Percip.May-Normalized,0.5
+Avg.Percip.June-Normalized,0.5
+Avg.Percip.July-Normalized,0.5
+Avg.Percip.Aug-Normalized,0.5
+Avg.Percip.Sept-Normalized,0.5
+Avg.Percip.Oct-Normalized,0.5
+Avg.Percip.Nov-Normalized,0.5
+Avg.Percip.Dec-Normalized,0.5
+Avg.Humid.Jan-Normalized,0.5
+Avg.Humid.Feb-Normalized,0.5
+Avg.Humid.March-Normalized,0.5
+Avg.Humid.April-Normalized,0.5
+Avg.Humid.May-Normalized,0.5
+Avg.Humid.June-Normalized,0.5
+Avg.Humid.July-Normalized,0.5
+Avg.Humid.Aug-Normalized,0.5
+Avg.Humid.Sept-Normalized,0.5
+Avg.Humid.Oct-Normalized,0.5
+Avg.Humid.Nov-Normalized,0.5
+Avg.Humid.Dec-Normalized,0.5
+Healthcare Index-Normalized,0.5
+HCI Contributors-Normalized,0.5
+% Walking-Normalized,0.5
+% Car-Normalized,0.5
+% Bike-Normalized,0.5
+% Public Transit-Normalized,0.5
+total_hotels-Normalized,0.5
+avg_rating-Normalized,0.5
+num_good_hotels-Normalized,0.5
+avg_price-Normalized,0.5
+pct_good_hotels-Normalized,0.5
+total_attractions-Normalized,0.5
+num_good_attractions-Normalized,0.5
+pct_good_attractions-Normalized,0.5
+total_nature_parks-Normalized,0.5
+total_fun_games-Normalized,0.5
+total_sights_landmarks-Normalized,0.5
+total_museums-Normalized,0.5
+total_nightlife-Normalized,0.5
+total_spas_wellness-Normalized,0.5
+total_classes_workshops-Normalized,0.5
+total_casinos_gambling-Normalized,0.5
+total_boat_tours_water_sports-Normalized,0.5
+total_water_amusement_parks-Normalized,0.5
+total_zoos_aquariums-Normalized,0.5
+total_good_for_kids-Normalized,0.5
+total_good_for_adrenaline_seekers-Normalized,0.5
+total_budget_friendly-Normalized,0.5
+num_good_restaurants-Normalized,0.5
+pct_good_restaurants-Normalized,0.5
+num_michelin-Normalized,0.5
+num_cheap_eats-Normalized,0.5
+num_moderately_priced-Normalized,0.5
+num_fine_dining-Normalized,0.5
+2019_violent_crime_ct-Normalized,0.5
+2019_property_crime_ct-Normalized,0.5
+num_fatal_crashes-Normalized,0.5
+fatalities_per_100m_miles-Normalized,0.5
+car_thefts_per_100k_residents-Normalized,0.5
+best_cuisines-American-Normalized,0
+best_cuisines-Italian-Normalized,0
+best_cuisines-Bar-Normalized,0
+best_cuisines-Steakhouse-Normalized,0
+best_cuisines-Asian-Normalized,0
+best_cuisines-Mexican-Normalized,0
+best_cuisines-Southwestern-Normalized,0
+best_cuisines-Cafe-Normalized,0
+best_cuisines-Pizza-Normalized,0
+best_cuisines-Sushi-Normalized,0
+best_cuisines-Seafood-Normalized,0
+best_cuisines-Japanese-Normalized,0
+best_cuisines-Thai-Normalized,0
+best_cuisines-Deli-Normalized,0
+best_cuisines-Diner-Normalized,0
+best_cuisines-Mediterranean-Normalized,0
+best_cuisines-Puerto Rican-Normalized,0
+best_cuisines-Latin-Normalized,0
+best_cuisines-European-Normalized,0
+best_cuisines-Contemporary-Normalized,0
+best_cuisines-Fast Food-Normalized,0
+best_cuisines-Pub-Normalized,0
+best_cuisines-Korean-Normalized,0
+best_cuisines-Fusion-Normalized,0
+best_cuisines-Indian-Normalized,0
+best_cuisines-Chinese-Normalized,0
+best_cuisines-French-Normalized,0
+best_cuisines-Spanish-Normalized,0
+best_cuisines-Middle Eastern-Normalized,0
+best_cuisines-International-Normalized,0
+best_cuisines-Barbecue-Normalized,0
+best_cuisines-Romana-Normalized,0
+best_cuisines-Caribbean-Normalized,0
+best_cuisines-Peruvian-Normalized,0
+best_cuisines-Cajun & Creole-Normalized,0
+best_cuisines-Brew Pub-Normalized,0
+best_cuisines-Hawaiian-Normalized,0
+best_cuisines-Healthy-Normalized,0
+best_cuisines-Gastropub-Normalized,0
+best_cuisines-Irish-Normalized,0
+best_cuisines-Lebanese-Normalized,0
+best_cuisines-Grill-Normalized,0
+best_cuisines-Wine Bar-Normalized,0
+best_cuisines-Greek-Normalized,0
+best_cuisines-German-Normalized,0
+best_cuisines-Portuguese-Normalized,0
+best_cuisines-Tuscan-Normalized,0
+best_cuisines-Balti-Normalized,0
+best_cuisines-Soups-Normalized,0
+best_cuisines-Brazilian-Normalized,0
+best_cuisines-South American-Normalized,0
+best_cuisines-Quick Bites-Normalized,0
+best_cuisines-Coffee & Tea-Normalized,0
