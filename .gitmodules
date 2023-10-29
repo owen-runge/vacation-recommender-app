@@ -1,0 +1,3 @@
+[submodule "vacation-recommender"]
+	path = vacation-recommender
+	url = https://github.com/owen-runge/vacation-recommender.git
