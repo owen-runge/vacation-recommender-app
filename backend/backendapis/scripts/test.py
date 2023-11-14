@@ -17,6 +17,7 @@ import sys
 import re
 import math
 import json
+from .additional_city_info import build_city_points
 
 #Data Structures Used to Update Values
 seasons_dict = {
@@ -131,52 +132,61 @@ def model_output(survey_data_dict):
         answer_city = str(cities_data_df['City'].values[val])
         city_output.append(str(answer_city))
     
+    # run build_city_points
+    full_output = build_city_points(city_output, cities_data_sample_row, month_list, survey_data_dict)
+
+
     #subprocess return stuff
-    json_object_result = json.dumps(city_output, indent=3)
+    json_object_result = json.dumps(full_output, indent=3)
     return json_object_result
     # with open(sys.argv[3], "w") as outfile:
     #     outfile.write(json_object_result)
 
 # survey_data_dict = {
-#    "climate-choices": "none",
+#    "climate-choices": "Hot",
 #    "climate-humidity": "Dry",
 #    "time-of-year": "Fall",
 #    "transport-choices": [
-#       "Public-Transport",
+#       "Car",
 #       "Bike"
 #    ],
 #    "transport-ranking": [
-#       "Public-Transport",
+#       "Car",
 #       "Bike"
 #    ],
-#    "budget": 1,
+#    "budget": 5,
 #    "kids-attraction-importance": 4,
 #    "adrenaline-attraction-importance": 3,
 #    "activity-type-choices": [
-#       "Zoos-Aquariums",
-#       "Museums",
-#       "Sights-Landmarks",
-#       "Casinos-Gambling"
+#       "zoos_aquariums",
+#       "museums",
+#       "sights_landmarks",
+#       "casinos_gambling",
+#       "classes_workshops",
+#       "nightlife"
 #    ],
 #    "activity-type-ranking": [
-#       "Casinos-Gambling",
-#       "Museums",
-#       "Sights-Landmarks",
-#       "Zoos-Aquariums"
+#       "casinos_gambling",
+#       "museums",
+#       "classes_workshops",
+#       "sights_landmarks",
+#       "nightlife",
+#       "zoos_aquariums"
 #    ],
-#    "hotel-importance": 2,
+#    "hotel-importance": 4,
 #    "cuisine-choices": [
-#       "Armenian",
-#       "Central-Italian",
-#       "Central-American",
-#       "Central-Asian",
-#       "Central-European"
+#       "American",
+#       "Pizza",
+#       "Latin",
+#       "Southwestern",
+#       "Japanese"
 #    ],
 #    "healthcare-importance": 5,
 #    "safety-importance": 5
 # }
 
 # print(model_output(survey_data_dict))
+# model_output(survey_data_dict)
 #Survey Information
 # survey_json = open('survey_study.json')
 # survey_data_dict = json.load(survey_json)
