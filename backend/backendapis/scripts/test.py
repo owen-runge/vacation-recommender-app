@@ -17,7 +17,10 @@ import sys
 import re
 import math
 import json
-from .additional_city_info import build_city_points
+try:
+    import additional_city_info
+except ModuleNotFoundError:
+    from . import additional_city_info
 import random
 
 #Data Structures Used to Update Values
@@ -186,7 +189,7 @@ def main(survey_data_dict):
     city_output = updated_cities_df['City'].tolist()    
     
     #run build_city_points
-    full_output = build_city_points(city_output, cities_data_sample_row, month_list, survey_data_dict)
+    full_output = additional_city_info.build_city_points(city_output, cities_data_sample_row, month_list, survey_data_dict)
 
 
     #subprocess return stuff
@@ -235,10 +238,10 @@ def main(survey_data_dict):
 #       "Japanese"
 #    ],
 #    "healthcare-importance": 5,
-#    "safety-importance": 5
+#    "safety-importance": 4
 # }
-# print(model_output(survey_data_dict))
-# model_output(survey_data_dict)
+# print(main(survey_data_dict))
+# main(survey_data_dict)
 #Survey Information
 # survey_json = open('survey_study.json')
 # survey_data_dict = json.load(survey_json)
