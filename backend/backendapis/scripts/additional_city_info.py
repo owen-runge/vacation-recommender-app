@@ -283,12 +283,9 @@ def build_city_points(result_cities, cities_data_sample_row, months_list, survey
         if (all_stats['Healthcare Index-Normalized'][0] <= abs(cities_data_sample_row['Healthcare Index-Normalized'] - curr_city_healthcare) <= all_stats['Healthcare Index-Normalized'][1]) and survey_data_dict['healthcare-importance'] > 3:
             city_bullets_list.append(healthcare_sentences[randint(1000,2999)//1000])
 
-        print("here")
         # safety
         curr_city_violent_crime = float(re.findall(r'(?<=[ -])\d+(?:\.\d+)?', str(curr_city_df['2019_violent_crime_ct-Normalized']))[0])
         curr_city_property_crime = float(re.findall(r'(?<=[ -])\d+(?:\.\d+)?', str(curr_city_df['2019_property_crime_ct-Normalized']))[0])
-        print(f"stuff for {city} = ", end='')
-        print(re.findall(r'(?<=[ -])\d+(?:\.\d+)?', str(curr_city_df['car_thefts_per_100k_residents-Normalized'])))
         curr_city_car_thefts = float(re.findall(r'(?<=[ -])\d+(?:\.\d+)?', str(curr_city_df['car_thefts_per_100k_residents-Normalized']))[0])
         curr_city_fatal_crashes = float(re.findall(r'(?<=[ -])\d+(?:\.\d+)?', str(curr_city_df['num_fatal_crashes-Normalized']))[0])
         curr_city_fatalities = float(re.findall(r'(?<=[ -])\d+(?:\.\d+)?', str(curr_city_df['fatalities_per_100m_miles-Normalized']))[0])
