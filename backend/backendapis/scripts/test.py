@@ -1,7 +1,7 @@
 #imports
 import pandas as pd
-import numpy as np 
-import seaborn as sns 
+#import numpy as np 
+#import seaborn as sns 
 import matplotlib.pyplot as plt
 from sklearn.neighbors import NearestNeighbors
 from sklearn.preprocessing import StandardScaler
@@ -17,7 +17,7 @@ import sys
 import re
 import math
 import json
-from .additional_city_info import build_city_points
+from additional_city_info import build_city_points
 import random
 
 #Data Structures Used to Update Values
@@ -69,8 +69,49 @@ cities_data_df = pd.read_csv('suvey_normalized_data.csv')
 cities_data_df = cities_data_df.fillna(0)
 cities_data_df = cities_data_df.iloc[ : , 1 :]
 
-#model compartmenalization
-def parallel_model(updated_sample_row,survey_data_start,survey_data_end,city_data,city_data_start,city_data_end, nn_value):
+def user_survey_rfl(updated_sample_row):
+    """
+    Inputs : 
+    updated_sample_row : sample row updated with values from the user survey
+    
+    Function : Build the ideal user survey data for reinforcment learning update in reinforcementLearning.py
+    
+    Outputs:
+    user_survey_value_list : updated data values for the five categories used in the reinforcement learning data
+     
+    """
+    first_row_climate = updated_sample_row.iloc[0 : 12]
+    first_row_transport = updated_sample_row.iloc[38 : 42]
+    first_row_safety = pd.concat([updated_sample_row.iloc[36 : 38], updated_sample_row.iloc[70 : 75]])
+    first_row_activity = updated_sample_row.iloc[43 : 65]
+    first_row_cuisine = pd.concat([updated_sample_row.iloc[64 : 70], updated_sample_row.iloc[75 : ]])
+    climate_value = first_row_climate.sum()/first_row_climate.size
+    transport_value = first_row_transport.sum()/first_row_transport.size
+    safety_value = first_row_safety.sum()/ first_row_safety.size
+    activity_value = first_row_activity.sum()/first_row_activity.size
+    restaurant_value = first_row_cuisine.sum()/ first_row_cuisine.size
+    user_survey_value_list = [climate_value, transport_value, safety_value, activity_value, restaurant_value]
+    
+    return user_survey_value_list
+
+def parallel_model(updated_sample_row, survey_data_start, survey_data_end, city_data, city_data_start, city_data_end, nn_value):
+    
+    """
+    Inputs : 
+    updated_sample_row : sample row updated with values from the user survey
+    survey_data_start : index of the intial feature from the sample row
+    survey_data_end : index of the final feature from the sample row
+    city_data : teh dataframe containing all the cities feature data
+    city_data_start : index of the intial feature from the city_data
+    city_data_end : index of the final feature from the city_data
+    nn_value : the number of cities the model is expected to output
+    
+    Function : The model 
+    
+    Outputs:
+    updated_data_df : Information of all the cities and their features output by the model
+     
+    """
     #updating model_data and survey_data
     survey_data_df = updated_sample_row.iloc[ survey_data_start:survey_data_end]
     model_data_df = city_data.iloc[ : , 1 : ]
@@ -95,6 +136,16 @@ def parallel_model(updated_sample_row,survey_data_start,survey_data_end,city_dat
 
 #updating the survey information using user input
 def survey_update(survey_data_dict):
+    """
+    Inputs : 
+    survey_data_dict : sample row wih all values 0.5 except cuisine which is 0
+    
+    Function : Build the sample survey using the user survey
+    
+    Outputs:
+    updated_sample_survey: sample survey updated with normalized value from the user survey
+     
+    """
     #updating climate
     month_list = seasons_dict[survey_data_dict['time-of-year']]
     try:
@@ -170,8 +221,20 @@ def survey_update(survey_data_dict):
     return cities_data_sample_row
     
     
-#main function
+
 def main(survey_data_dict):
+    """
+    Inputs : 
+    survey_data_dict : sample row wih all values 0.5 except cuisine which is 0
+    
+    Function : Main function to call all the other methods to output the five optimum cities for the user
+    
+    Outputs:
+    json_object_result : Json object returned to the Front-End with information about the five cities chosen by the model as well ideal
+    data from the user survey for the reinforcementLearning updates
+     
+    """
+    
     #month list from data structure
     month_list = seasons_dict[survey_data_dict['time-of-year']]
     #sample row update
@@ -187,10 +250,13 @@ def main(survey_data_dict):
     
     #run build_city_points
     full_output = build_city_points(city_output, cities_data_sample_row, month_list, survey_data_dict)
-
-
+    #reinforcement learning survey values
+    user_survey_rfl_list = user_survey_rfl(updated_sample_row)
+    full_output["user_survey_rfl"] = user_survey_rfl_list    
+    print(full_output)
     #subprocess return stuff
     json_object_result = json.dumps(full_output, indent=3)
+    print(json_object_result)
     return json_object_result
     # with open(sys.argv[3], "w") as outfile:
     #     outfile.write(json_object_result)
@@ -235,10 +301,10 @@ def main(survey_data_dict):
 #       "Japanese"
 #    ],
 #    "healthcare-importance": 5,
-#    "safety-importance": 5
+#    "safety-importance": 4
 # }
-# print(model_output(survey_data_dict))
-# model_output(survey_data_dict)
+# print(main(survey_data_dict))
+#main(survey_data_dict)
 #Survey Information
 # survey_json = open('survey_study.json')
 # survey_data_dict = json.load(survey_json)
