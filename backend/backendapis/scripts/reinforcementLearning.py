@@ -72,46 +72,54 @@ def main(user_feedback_survey):
     for index in range(len(user_survey_list)):
         update_rfl_data(user_survey_list[index], user_survey_rfl[index], user_feedback_survey)
     reinforcement_data_df.to_csv("Reinforcement_Data_Update.csv")
-    #do you expect me to return anything(Once I save the updated CSV I do not have any need to return anything)
+    
 
 #example survey feedback
 # {
-#     "climate-choices": "Warm",
-#     "climate-humidity": "Dry",
-#     "time-of-year": "Summer",
-#     "transport-choices": [
-#        "Car",
-#        "Walking"
+#     "climate-ranking": [     
+#       "Tucson, AZ",       
+#       "Los Angeles, CA",      
+#       "Miami, FL", 
+#       "Honolulu, HI",
+#       "New Orleans, LA"
 #     ],
-#     "transport-ranking": [
-       
+#     "transportation-ranking" : [     
+#         "Tucson, AZ",       
+#         "Los Angeles, CA",      
+#         "Miami, FL", 
+#         "Honolulu, HI",
+#         "New Orleans, LA"
 #     ],
-#     "budget": 5,
-#     "kids-attraction-importance": 2,
-#     "adrenaline-attraction-importance": 2,
-#     "activity-type-choices": [
-#       "sights_landmarks",
-#       "nature_parks"   
+#     "safety-ranking" : [
+#         "Tucson, AZ",       
+#         "Los Angeles, CA",      
+#         "Miami, FL", 
+#         "Honolulu, HI",
+#         "New Orleans, LA"
 #     ],
-#     "activity-type-ranking": [     
-#       "museums",       
-#       "sights_landmarks",      
-#       "nature_parks", 
-#       "nightlife"
-
+#     "activity-ranking" : [
+#         "Tucson, AZ",       
+#         "Los Angeles, CA",      
+#         "Miami, FL", 
+#         "Honolulu, HI",
+#         "New Orleans, LA"
+#     ],   
+#     "restaurant-ranking" : [
+#         "Los Angeles, CA",      
+#         "Miami, FL", 
+#         "Honolulu, HI",
+#         "Tucson, AZ",
+#         "New Orleans, LA"
 #     ],
-#     "hotel-importance": 5,
-#     "cuisine-choices": [
-#        "Chinese" ,    
-#        "Japanese",
-#        "Thai",
-#        "Korean",
-#        "Vietnamese"
-      
-#     ],
-#     "healthcare-importance": 1,
-#     "safety-importance": 1
+#     "user_survey_rfl": [
+#         0.7723210344517383,
+#         0.5,
+#         0.3543806258340809,
+#         0.4832442071576537,
+#         0.13687061439118695
+#      ]
 # }
+
 # survey_json = open('user_feedback_survey.json')
 # survey_data_dict = json.load(survey_json) 
 # main(survey_data_dict)    

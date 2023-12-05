@@ -252,11 +252,8 @@ def main(survey_data_dict):
     full_output = build_city_points(city_output, cities_data_sample_row, month_list, survey_data_dict)
     #reinforcement learning survey values
     user_survey_rfl_list = user_survey_rfl(updated_sample_row)
-    full_output["user_survey_rfl"] = user_survey_rfl_list    
-    print(full_output)
-    #subprocess return stuff
+    full_output["user_survey_rfl"] = user_survey_rfl_list  
     json_object_result = json.dumps(full_output, indent=3)
-    print(json_object_result)
     return json_object_result
     # with open(sys.argv[3], "w") as outfile:
     #     outfile.write(json_object_result)
