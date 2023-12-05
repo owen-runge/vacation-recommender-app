@@ -92,8 +92,8 @@ def user_survey_rfl(updated_sample_row):
     transport_value = first_row_transport.sum()/first_row_transport.size
     safety_value = first_row_safety.sum()/ first_row_safety.size
     activity_value = first_row_activity.sum()/first_row_activity.size
-    restaurant_value = first_row_cuisine.sum()/ first_row_cuisine.size
-    user_survey_value_list = [climate_value, transport_value, safety_value, activity_value, restaurant_value]
+    cuisine_value = first_row_cuisine.sum()/ first_row_cuisine.size
+    user_survey_value_list = [climate_value, transport_value, safety_value, activity_value, cuisine_value]
     
     return user_survey_value_list
 

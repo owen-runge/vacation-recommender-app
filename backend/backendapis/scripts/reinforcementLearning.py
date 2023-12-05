@@ -16,13 +16,13 @@ import random
 #rfl data and survey feedback conversion
 rfl_dict = {
     "climate-ranking" : "Climate",
-    "transportation-ranking" : "Transport",
+    "transport-ranking" : "Transport",
     "safety-ranking" : "Safety",
     "activity-ranking" : "Activity",
-    "restaurant-ranking" : "Restaurant"
+    "cuisine-ranking" : "Restaurant"
 } 
 #feedback survey category names
-user_survey_list = ["climate-ranking", "transportation-ranking", "safety-ranking", "activity-ranking", "restaurant-ranking"]
+user_survey_list = ["climate-ranking", "transport-ranking", "safety-ranking", "activity-ranking", "cuisine-ranking"]
 
 #rfl data update increment values
 survey_increment_value_list = [0.07, 0.04, 0 , -0.04, -0.07]
@@ -57,69 +57,31 @@ def update_rfl_data(data_category, user_category_value, user_feedback_survey):
         reinforcement_data_df.loc[reinforcement_data_df.City == city, dataframe_category] = rlf_cell_value
         
        
-def main(user_feedback_survey):  
+def main(user_feedback_survey, user_feedback_values):  
     """
     Paramters :
     user_feedback_survey : Feedback of the cities chosen for the user based on initial user interest
-    
+    user_feedback_values : Ideal User Survey Category Values List
     function : 
     Make the reinforcement Learning data update and save the updated CSV
     
     Returns: None
     CSV rfl data updated based on user feedback
     """  
-    user_survey_rfl = user_feedback_survey["user_survey_rfl"]
     for index in range(len(user_survey_list)):
-        update_rfl_data(user_survey_list[index], user_survey_rfl[index], user_feedback_survey)
+        update_rfl_data(user_survey_list[index], user_feedback_values[index], user_feedback_survey)
+    #print(reinforcement_data_df.loc[reinforcement_data_df.City == "Oklahoma City, OK", "Climate"].values[0])
     reinforcement_data_df.to_csv("Reinforcement_Data_Update.csv")
     
 
 #example survey feedback
-# {
-#     "climate-ranking": [     
-#       "Tucson, AZ",       
-#       "Los Angeles, CA",      
-#       "Miami, FL", 
-#       "Honolulu, HI",
-#       "New Orleans, LA"
-#     ],
-#     "transportation-ranking" : [     
-#         "Tucson, AZ",       
-#         "Los Angeles, CA",      
-#         "Miami, FL", 
-#         "Honolulu, HI",
-#         "New Orleans, LA"
-#     ],
-#     "safety-ranking" : [
-#         "Tucson, AZ",       
-#         "Los Angeles, CA",      
-#         "Miami, FL", 
-#         "Honolulu, HI",
-#         "New Orleans, LA"
-#     ],
-#     "activity-ranking" : [
-#         "Tucson, AZ",       
-#         "Los Angeles, CA",      
-#         "Miami, FL", 
-#         "Honolulu, HI",
-#         "New Orleans, LA"
-#     ],   
-#     "restaurant-ranking" : [
-#         "Los Angeles, CA",      
-#         "Miami, FL", 
-#         "Honolulu, HI",
-#         "Tucson, AZ",
-#         "New Orleans, LA"
-#     ],
-#     "user_survey_rfl": [
-#         0.7723210344517383,
-#         0.5,
-#         0.3543806258340809,
-#         0.4832442071576537,
-#         0.13687061439118695
-#      ]
-# }
+#user_feedback_survey = {'climate-ranking': ['Oklahoma City, OK', 'Atlanta, GA', 'Little Rock, AR', 'Memphis, TN', 'Raleigh, NC'], 
+#  'transport-ranking': ['Memphis, TN', 'Atlanta, GA', 'Oklahoma City, OK', 'Little Rock, AR', 'Raleigh, NC'],
+#  'activity-ranking': ['Raleigh, NC', 'Memphis, TN', 'Atlanta, GA', 'Little Rock, AR', 'Oklahoma City, OK'],
+#  'safety-ranking': ['Oklahoma City, OK', 'Atlanta, GA', 'Little Rock, AR', 'Memphis, TN', 'Raleigh, NC'], 
+#  'cuisine-ranking': ['Memphis, TN', 'Atlanta, GA', 'Oklahoma City, OK', 'Little Rock, AR', 'Raleigh, NC']}
 
+#user_feedback_value = [0.6148760226687565, 0.5, 0.20120758864903446, 0.48298553513140335, 0.09019692452251832]
 # survey_json = open('user_feedback_survey.json')
 # survey_data_dict = json.load(survey_json) 
-# main(survey_data_dict)    
+#main(user_feedback_survey, user_feedback_value)    
