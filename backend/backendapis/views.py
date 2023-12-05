@@ -12,6 +12,7 @@ def processData(request):
     print(f'request.data: {request.data}')
 
     if request.data[0] == 'feedback_survey_res':
+        print(request.data[2])
         return Response('success!')
     if request.data[0] == 'main_survey_res':
         survey_response = request.data[1]
