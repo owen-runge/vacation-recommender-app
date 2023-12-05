@@ -3,13 +3,16 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .models import SurveyData
 from .serializers import SurveyDataSerializer
-import subprocess
-from .scripts.test import model_output
+from .scripts.test import main
 
 # Create your views here.
 @api_view(['POST'])
 def processData(request):
-    survey_response = request.data
-    #process = subprocess.run(['python', 'scripts/test.py', 'survey_response'], capture_output=True, text=True)
-    #return Response(process.stdout)
-    return Response(model_output(survey_response))
+    print(f'request: {request}')
+    print(f'request.data: {request.data}')
+
+    if request.data[0] == 'feedback_survey_res':
+        return Response('success!')
+    if request.data[0] == 'main_survey_res':
+        survey_response = request.data[1]
+        return Response(main(survey_response))
