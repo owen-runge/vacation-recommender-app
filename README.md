@@ -20,6 +20,7 @@ $ pip install django-cors-headers
 $ pip install pandas numpy seaborn matplotlib plotly scipy
 $ pip install -U scikit-learn
 ```
+Note: these instructions are for Windows, if you are running Linux or MacOS, substitute `ENV_NAME\Scripts\activate` for `source ENV_NAME/bin/activate`
 ## Start server and website
 To start the server, ensure you are in the `vacation-recommender-app` directory and have your virtual environment activated. If not activated, activate your virtual environment by running:
 ```
