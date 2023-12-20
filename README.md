@@ -36,3 +36,8 @@ $ python manage.py runserver
 From there, the backend api should be listening.
 
 Note: instructions on how to install and run the frontend are located in that repository's README file.
+
+## Resources
+- [Radix: How to Create a REST API with Django REST Framework](https://radixweb.com/blog/create-rest-api-using-django-rest-framework)
+- [LogRocket: How to Create a REST API with Django REST Framework](https://blog.logrocket.com/django-rest-framework-create-api/)
+- [Medium: Django (Backend) + React (Frontend) Basic Tutorial](https://medium.com/@gazzaazhari/django-backend-react-frontend-basic-tutorial-6249af7964e4)
