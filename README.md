@@ -20,6 +20,7 @@ $ pip install django-cors-headers
 $ pip install pandas numpy seaborn matplotlib plotly scipy
 $ pip install -U scikit-learn
 ```
+Note: these instructions are for Windows, if you are running Linux or MacOS, substitute `ENV_NAME\Scripts\activate` for `source ENV_NAME/bin/activate`
 ## Start server and website
 To start the server, ensure you are in the `vacation-recommender-app` directory and have your virtual environment activated. If not activated, activate your virtual environment by running:
 ```
@@ -35,3 +36,8 @@ $ python manage.py runserver
 From there, the backend api should be listening.
 
 Note: instructions on how to install and run the frontend are located in that repository's README file.
+
+## Resources
+- [Radix: How to Create a REST API with Django REST Framework](https://radixweb.com/blog/create-rest-api-using-django-rest-framework)
+- [LogRocket: How to Create a REST API with Django REST Framework](https://blog.logrocket.com/django-rest-framework-create-api/)
+- [Medium: Django (Backend) + React (Frontend) Basic Tutorial](https://medium.com/@gazzaazhari/django-backend-react-frontend-basic-tutorial-6249af7964e4)
